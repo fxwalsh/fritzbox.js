@@ -18,10 +18,11 @@ const fritzSystem = require('./' + dir + '/system.js')
 const fritzFon = require('./' + dir + '/fon.js')
 const fritzDect = require('./' + dir + '/dect.js')
 const fritzWlan = require('./' + dir + '/wlan.js')
+const fritzInet = require('./' + dir + '/inet.js')
 
 const fritz = Object.assign(
   {}, fritzConfig, fritzSystem, fritzLogin,
-  fritzFon, fritzDect, fritzWlan
+  fritzFon, fritzDect, fritzWlan, fritzInet
 )
 
 process.on('unhandledRejection', function (reason, r) {
