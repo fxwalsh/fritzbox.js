@@ -7,13 +7,6 @@ let fritzInet = {}
 
 const fritzLogin = require('./login.js')
 const fritzRequest = require('./request.js')
-//const fritzFormat = require('./format.js')
-//const fritzSystem = require('./system.js')
-
-//const net = require('net')
-//const events = require('events')
-
-
 
 /**
  * Set full Inet access.
@@ -57,7 +50,7 @@ const form2 = {
   const response2 = await fritzRequest.request('/data.lua', 'POST', options, false, false, form2)
   if (response2.error) return response
   //const result = JSON.parse(response.body).data.foncalls.activecalls
-  console.log("returned "+response2.body)
+  
   return response2.body
 }
 
@@ -103,7 +96,6 @@ const form2 = {
   const response2 = await fritzRequest.request('/data.lua', 'POST', options, false, false, form2)
   if (response2.error) return response
   //const result = JSON.parse(response.body).data.foncalls.activecalls
-  console.log("returned "+response2.body)
   return response2.body
 }
 

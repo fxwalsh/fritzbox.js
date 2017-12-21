@@ -8,7 +8,7 @@ options.password =  process.env.FRITZ_pass || options.password
 ;(async () => {
  
   const result = await fritz.setNeverStandardAccess(options)
-  if (result.error) return console.log('Error: ' + result.error.message)
+  if (result.error) return console.log('sError: ' + result.error.message)
   console.log('Got '+result)
  
 })()

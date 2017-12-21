@@ -14,15 +14,13 @@ const fritzConfig = {
 
 const dir = 'src'
 const fritzLogin = require('./' + dir + '/login.js')
-const fritzSystem = require('./' + dir + '/system.js')
-const fritzFon = require('./' + dir + '/fon.js')
-const fritzDect = require('./' + dir + '/dect.js')
-const fritzWlan = require('./' + dir + '/wlan.js')
+
+
 const fritzInet = require('./' + dir + '/inet.js')
 
 const fritz = Object.assign(
-  {}, fritzConfig, fritzSystem, fritzLogin,
-  fritzFon, fritzDect, fritzWlan, fritzInet
+  {}, fritzConfig, fritzLogin,
+  fritzInet
 )
 
 process.on('unhandledRejection', function (reason, r) {
@@ -33,5 +31,4 @@ process.on('unhandledRejection', function (reason, r) {
   console.log(reason, r)
   process.exit(1)
 })
-
 module.exports = fritz

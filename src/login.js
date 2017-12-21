@@ -10,6 +10,7 @@ module.exports = fritzLogin
  * @return {string} Returns a sessionId if successful.
  */
 fritzLogin.getSessionId = async (options) => {
+
   // If a session ID is already set, we return that value!
   if (options.sid) return options.sid
 
@@ -18,9 +19,11 @@ fritzLogin.getSessionId = async (options) => {
 
   // Return the response error if one has presented itself.
   if (response.error) return response
+  
 
   // Solve the challenge.
   const challenge = response.body.match('<Challenge>(.*?)</Challenge>')[1]
+ 
   const buffer = Buffer.from(challenge + '-' + options.password, 'UTF-16LE')
   const challengeAnswer = challenge + '-' + require('crypto').createHash('md5').update(buffer).digest('hex')
 
@@ -29,7 +32,7 @@ fritzLogin.getSessionId = async (options) => {
   const challengeResponse = await fritzRequest.request(path, 'GET', options)
 
   if (challengeResponse.error) return challengeResponse
-
+ 
   // Extract the session ID.
   const sessionId = challengeResponse.body.match('<SID>(.*?)</SID>')[1]
 

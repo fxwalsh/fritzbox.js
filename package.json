@@ -52,7 +52,7 @@
     ]
   },
   "options": {
-    "protocol": "https",
+    "protocol": "http",
     "server": "fritz.box",
     "username": "xxx",
     "password": "xxx",
